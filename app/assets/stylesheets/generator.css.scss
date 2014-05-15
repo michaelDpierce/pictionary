@@ -1,0 +1,117 @@
+// Place all the styles related to the generator controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap";
+
+/* universal */
+
+$lightgrey: #999;
+
+html {
+  overflow-y: scroll;
+  background-color: #FF6326;
+}
+
+body {
+  padding-top: 0px;
+  background-color: #FF6326;
+
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+
+  h1 {
+  margin-bottom: 10px;
+  }
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6, p, cite, strong {
+  line-height: 1;
+  font-family: 'Baskerville';
+  color: white;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 0px;
+  text-align: center;
+
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  text-weight: normal;
+  color: $lightgrey;
+}
+
+h4 {
+  margin-top: 0px;
+  margin-bottom: 25px;
+
+}
+
+.header-fix {
+  margin-bottom: 5px;
+}
+
+P {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+hr {
+    padding: 0px;
+    margin-top: 0px;
+    width: 60%;
+}
+
+.name-border {
+   background:black; border:0; height:1px
+}
+
+/* Footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: $lightgrey;  //defined via bootstrap-sass gem
+}
+
+footer a {
+  color: #555;
+}
+
+footer a:hover {
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: left;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 10px;
+}
