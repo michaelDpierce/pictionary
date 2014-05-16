@@ -5,4 +5,8 @@ class GeneratorController < ApplicationController
     @get_word = random_word
   end
 
+  def score
+
+  end
+
 end

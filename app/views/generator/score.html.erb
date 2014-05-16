@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Score</title>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular.min.js"></script>
+</head>
+<div ng-app="">
+  <div class='element' align='center'>
+    <br><br><br><br><br><br><br><br>
+      <button type="button" class="btn btn-default btn-lg" ng-click="count1 = count1 + 1" ng-init="count1=0">
+      Give Team A Points
+    </button>
+    <h1> Team A: {{count1}} </h1>
+  </div>
+  <div class='element' align='center'>
+    <br><br><br><br><br><br><br><br>
+      <button type="button" class="btn btn-default btn-lg" ng-click="count2 = count2 + 1" ng-init="count2=0">
+       Give Team B Points
+    </button>
+    <h1> Team B: {{count2}} </h1>
+  </div>
+</div>
+</html>
