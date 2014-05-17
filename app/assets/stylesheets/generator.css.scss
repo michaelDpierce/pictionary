@@ -66,54 +66,9 @@ h4 {
 
 }
 
-.header-fix {
-  margin-bottom: 5px;
-}
-
 P {
   font-size: 1.1em;
   line-height: 1.7em;
-}
-
-hr {
-    padding: 0px;
-    margin-top: 0px;
-    width: 60%;
-}
-
-.name-border {
-   background:black; border:0; height:1px
-}
-
-/* Footer */
-
-footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: $lightgrey;  //defined via bootstrap-sass gem
-}
-
-footer a {
-  color: #555;
-}
-
-footer a:hover {
-  color: #222;
-}
-
-footer small {
-  float: left;
-}
-
-footer ul {
-  float: left;
-  list-style: none;
-}
-
-footer ul li {
-  float: left;
-  margin-left: 10px;
 }
 
 a {
