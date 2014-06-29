@@ -1,14 +1,131 @@
-<div align='center'>
+<h1> Speaker Wire Calculator </h1>
+<br><br>
 
-  <br><br><br><br><br><br>
-  <h1><%= @get_word %> </h1>
 
-  <br>
+<div ng-controller="calculator" ng-app id='width_fix'>
+  <center>
+    <div class="panel panel-default" style='width: 75%;'>
+      <br>
+      <form novalidate class="css-form">
+        Application
+        <select ng-model="indexId"
+                ng-options="quality.IndexId as quality.IndexName for quality in qualityIndex"
+                style='width: 125px;'>
+        </select>
+        Nominal Impedance (Ohm)
+        <input type="number" ng-model="ohms" placeholder="i.e. 4ohms"
+               style='width: 125px;'>
+        Cable Run (feet)
+        <input type="number" ng-model="feet" placeholder="i.e. 20ft"
+               style='width: 125px;'>
+      </form>
+      <br>
+    </div>
 
-  <%= link_to 'Generate Random Word', root_path,
-    class: 'btn btn-default btn-lg', role: 'button' %>
+    <button input type="button" class="btn btn-default" ng-click="calculateScore()">
+      Calculate Guage
+    </button>
 
-  <br><br>
+    <br><br>
 
-  <p> Wanna keep score? <a href='/score'> Click here! </a></p>
+    <div class="panel panel-default" style='width: 75%;'>
+      <div class="panel-body" style='text-align:left;'>
+        <div ng-show="isCalculated">
+        Based on the parameters you have entered the optimal gauge of speaker wire
+        or cable for the run between your receiver or amp and speaker or subwoofer
+        is <b> {{gauge}} </b>. Below I have listed some recomendations for cable:
+        </br></br>
+        </div>
+        <div ng-hide="isCalculated">
+          Please select an application for your project and enter the olms and
+          run length for your run to calculate the correct optimal gauge.
+        </div>
+
+        <div ng-if="gauge == 10">
+        <b><%= @AWG10.title %></b></br>
+        <%= link_to(@url_10 , @AWG10.description) %></br>
+        <%= link_to(image_tag("#{@AWG10.images.first}", height: '150px;'), @URL_10) %></br>
+        </div>
+
+        <div ng-if="gauge == 12">
+        <b><%= @AWG12.title %></b></br>
+        <%= link_to(@url_12 , @AWG12.description) %></br>
+        <%= link_to(image_tag("#{@AWG12.images.first}", height: '150px;'), @URL_12) %></br>
+        </div>
+
+        <div ng-if="gauge == 14">
+        <b><%= @AWG14.title %></b></br>
+        <%= link_to(@url_14 , @AWG14.description) %></br>
+        <%= link_to(image_tag("#{@AWG14.images.first}", height: '150px;'), @URL_14) %></br>
+        </div>
+
+        <div ng-if="gauge == 16">
+        <b><%= @AWG16.title %></b></br>
+        <%= link_to(@url_16 , @AWG16.description) %></br>
+        <%= link_to(image_tag("#{@AWG16.images.first}", height: '150px;'), @URL_16) %></br>
+        </div>
+
+        <div ng-if="gauge == 18">
+        <b><%= @AWG18.title %></b></br>
+        <%= link_to(@url_18 , @AWG18.description) %></br>
+        <%= link_to(image_tag("#{@AWG18.images.first}", height: '150px;'), @URL_18) %></br>
+        </div>
+      </div>
+    </div>
+  </center>
 </div>
+
+
+
+<script>
+  function calculator($scope) {
+    // Set Variables
+    $scope.gauge = null;
+    $scope.feet = 0;
+    $scope.ohms = 0;
+    $scope.score = 0;
+    $scope.indexId = 300;
+    $scope.isCalculated = false;
+
+    // Application
+    $scope.qualityIndex = [
+        {IndexId : 100, IndexName : 'Audiophile' },
+        {IndexId : 200, IndexName : 'Critical Listening' },
+        {IndexId : 300, IndexName : 'Casual Listening' },
+        {IndexId : 400, IndexName : 'Audio Distribution' }
+    ];
+
+    // Calculate Score based on parameters
+    $scope.calculateScore = function() {
+      $scope.score = ( $scope.indexId * $scope.ohms ) / $scope.feet
+      $scope.isCalculated = true;
+      $scope.calculateGauge()
+    };
+
+    $scope.calculateGauge = function () {
+      if ($scope.score < 11) {
+        $scope.gauge = 10;
+      } else if ($scope.score >= 11 && $scope.score < 17) {
+        $scope.gauge = 12;
+      }  else if ($scope.score >= 17 && $scope.score < 25) {
+        $scope.gauge = 14;
+      } else if ($scope.score >= 25 && $scope.score < 37) {
+        $scope.gauge = 16;
+      } else if ($scope.score >=37) {
+        $scope.gauge = 18;
+      } else {
+        $scope.gauge = null;
+      }
+    };
+  };
+</script>
+
+<style>
+#width_fix {
+      width: 100%;
+      margin: 0 auto;
+}
+
+</style>
+
+

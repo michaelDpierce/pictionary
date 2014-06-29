@@ -10,12 +10,12 @@ $lightgrey: #999;
 
 html {
   overflow-y: scroll;
-  background-color: #FF6326;
+  background-color: #FBFBFB;
 }
 
 body {
   padding-top: 0px;
-  background-color: #FF6326;
+  background-color: #FBFBFB;
 
 }
 
@@ -40,7 +40,7 @@ textarea {
 h1, h2, h3, h4, h5, h6, p, cite, strong {
   line-height: 1;
   font-family: 'Baskerville';
-  color: white;
+  color: #AB6D2B;
 }
 
 h1 {
@@ -73,4 +73,8 @@ P {
 
 a {
   color: #000099;
+}
+
+.form_label {
+  color: #80879D;
 }
